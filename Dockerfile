@@ -21,9 +21,9 @@ ENV CROSS_COMPILE=arm-linux-gnueabi-
 #
 # linux-xlinx
 #
-RUN git clone -b master --depth 1 https://github.com/Xilinx/linux-xlnx.git
+RUN git clone -b zybo_z7 --depth 1 https://github.com/gorogit/linux-xlnx.git
 
 #
 # u-boot
 #
-RUN git clone -b v2018.05 --depth 1 https://github.com/u-boot/u-boot.git
+RUN git clone -b zynq-z7 --depth 1 https://github.com/gorogit/u-boot.git
