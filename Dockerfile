@@ -17,6 +17,7 @@ RUN wget -q https://releases.linaro.org/components/toolchain/binaries/7.2-2017.1
 
 ENV PATH $PATH:/home/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabi/bin
 ENV CROSS_COMPILE=arm-linux-gnueabi-
+ENV ARCH=arm
 
 #
 # linux-xlinx
