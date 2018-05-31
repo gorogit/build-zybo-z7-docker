@@ -4,7 +4,7 @@ FROM ubuntu:16.04
 # base environment
 #
 RUN apt-get update && \
-    apt-get install -y vim less build-essential wget git ncurses-dev bc u-boot-tools libssl-dev
+    apt-get install -y vim less build-essential wget git ncurses-dev bc u-boot-tools libssl-dev sudo
 
 WORKDIR  /home
 
@@ -20,6 +20,12 @@ ENV CROSS_COMPILE=arm-linux-gnueabi-
 ENV ARCH=arm
 
 #
+# create build user
+#
+RUN id build 2>/dev/null || useradd --uid 30000 --create-home build
+RUN echo "build ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers
+
+#
 # linux-xlinx
 #
 RUN git clone -b zybo_z7 --depth 1 https://github.com/gorogit/linux-xlnx.git
@@ -28,3 +34,10 @@ RUN git clone -b zybo_z7 --depth 1 https://github.com/gorogit/linux-xlnx.git
 # u-boot
 #
 RUN git clone -b zynq-z7 --depth 1 https://github.com/gorogit/u-boot.git
+
+#
+# User workdir and startup command
+#
+USER build
+WORKDIR /home/build
+CMD "/bin/bash"
