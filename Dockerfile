@@ -4,7 +4,7 @@ FROM ubuntu:16.04
 # base environment
 #
 RUN apt-get update && \
-    apt-get install -y vim less build-essential wget git ncurses-dev bc u-boot-tools libssl-dev sudo libtool autoconf
+    apt-get install -y vim less build-essential wget git ncurses-dev bc u-boot-tools libssl-dev sudo libtool autoconf cmake
 
 
 #
