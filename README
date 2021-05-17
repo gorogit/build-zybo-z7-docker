@@ -18,12 +18,12 @@ Artifacts:
 	arch/arm/boot/dts/zynq-zybo-z7.dtb
 
 
-u-boot設定
+config u-boot
 	setenv bootargs root=/dev/mmcblk0p2
 	saveenv
 	
 
-u-boot より LinuxカーネルをBoot　
+boot Linux kernel from u-boot　
 	Zynq> fatload mmc 0 0x03000000 uImage && fatload mmc 0 0x02A00000 zynq-zybo-z7.dtb && bootm 0x03000000 - 0x02A00000
 	
 	Zynq> fatload mmc 0 0x02080000 uImage && fatload mmc 0 0x02000000 zynq-zybo-z7.dtb && bootm 0x02080000 - 0x02000000
